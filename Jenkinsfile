@@ -6,5 +6,4 @@ pipeline {
                 sh 'node ./test/index.js'
             }
         }
-    }
 }
