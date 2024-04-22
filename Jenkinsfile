@@ -1,8 +1,8 @@
 pipeline {
     agent any 
-    stages{
+    stages {
         stage('Test') {
-            steps: {
+            steps {
                 bat 'node test.js'
             }
         }
