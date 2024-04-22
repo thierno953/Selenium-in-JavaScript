@@ -7,10 +7,8 @@ async function test_case() {
     driver = await new Builder().forBrowser("chrome").build();
     await driver.get("https://www.inami.fgov.be/fr");
 
-    // Wait for the search input to be located
     const searchInput = await driver.wait(until.elementLocated(By.name("q")), 10000);
 
-    // Enter text into the search input
     await searchInput.sendKeys("Hello, World!", Key.RETURN);
 
     console.log("Text entered into the search input.");
