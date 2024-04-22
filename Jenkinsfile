@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent any 
   
     stages {
         stage('Install dependencies') {
@@ -11,7 +11,11 @@ pipeline {
         }
         
         stage('Test') {
+            environment {
+                DISPLAY = ":99"
+            }
             steps {
+                sh 'Xvfb :99 -ac &'
                 sh 'node ./test/index.js'
             }
         }
