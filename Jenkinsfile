@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    
-    tools {
-        nodejs 'node18'
-    }
-    
+  
     stages {
         stage('Install dependencies') {
             steps {
@@ -13,6 +9,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Test') {
             steps {
                 sh 'node ./test/index.js'
