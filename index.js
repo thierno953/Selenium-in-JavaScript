@@ -1,4 +1,4 @@
-const { By, Key, Build, Builder } = require("selenium-webdriver");
+const { By, Key, Builder } = require("selenium-webdriver");
 require("chromedriver");
 
 async function test_case() {
