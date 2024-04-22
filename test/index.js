@@ -4,7 +4,7 @@ require("chromedriver");
 async function test_case() {
   let driver = await new Builder().forBrowser("chrome").build();
 
-  await driver.get("https://www.inami.fgov.be/fr");
+  await driver.get("https://www.bing.com/");
   try {
     driver = await new Builder().forBrowser("chrome").build();
 
