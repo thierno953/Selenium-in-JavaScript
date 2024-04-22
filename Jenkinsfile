@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/thierno953/Selenium-in-JavaScript.git'
+                git branch: 'main', credentialsId: 'thierno953', url: 'https://github.com/thierno953/Selenium-in-JavaScript.git'
             }
         }
         stage('Test') {
