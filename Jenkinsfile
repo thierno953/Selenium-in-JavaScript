@@ -1,6 +1,10 @@
 pipeline {
-    agent any 
-  
+    agent any
+    
+    tools {
+        nodejs 'node18'
+    }
+    
     stages {
         stage('Install dependencies') {
             steps {
@@ -9,13 +13,8 @@ pipeline {
                 }
             }
         }
-        
         stage('Test') {
-            environment {
-                DISPLAY = ":99"
-            }
             steps {
-                sh 'Xvfb :99 -ac &'
                 sh 'node ./test/index.js'
             }
         }
