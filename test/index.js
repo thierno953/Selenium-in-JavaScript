@@ -1,25 +1,22 @@
-const { By, Key, Builder } = require("selenium-webdriver");
+const { By, Key, Builder, until } = require("selenium-webdriver");
 require("chromedriver");
 
 async function test_case() {
-  let driver = await new Builder().forBrowser("chrome").build();
-
-  await driver.get("https://www.inami.fgov.be/fr");
+  let driver;
   try {
     driver = await new Builder().forBrowser("chrome").build();
+    await driver.get("https://www.inami.fgov.be/fr");
 
-    await driver.findElement(By.name("q")).sendKeys("Hello, World", Key.RETURN);
+    // Wait for the search input to be located
+    const searchInput = await driver.wait(until.elementLocated(By.name("q")), 10000);
 
-    console.log("Opened Google");
-
-    await driver.sleep(10000);
-    const searchInput = await driver.findElement(By.name("q"));
-
-    await driver.quit();
-
+    // Enter text into the search input
     await searchInput.sendKeys("Hello, World!", Key.RETURN);
 
     console.log("Text entered into the search input.");
+
+    await driver.sleep(10000);
+
   } catch (error) {
     console.error("An error occurred:", error);
   } finally {
