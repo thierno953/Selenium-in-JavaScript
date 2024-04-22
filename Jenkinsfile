@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                bat 'node test.js'
+                sh 'node test.js'
             }
         }
     }
